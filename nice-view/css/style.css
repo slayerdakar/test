@@ -368,11 +368,6 @@ body {
   font-size: 0;
 }
 
-.footer-block {
-  vertical-align: middle;
-  display: inline-block;
-}
-
 .footer-main,
 .footer-buyer,
 .footer-addres,
@@ -451,7 +446,7 @@ body {
 
 .footer-logo {
   max-width: 146px;
-  vertical-align: middle;
+  vertical-align: bottom;
 }
 
 .footer-logo-box {
