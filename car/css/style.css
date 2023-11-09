@@ -18,6 +18,7 @@
   background:
     url("../img/dekor-bg-4.webp") center / 100% 100% no-repeat,
     #1d353b;
+  overflow-x: scroll;
 }
 
 .car__container {
