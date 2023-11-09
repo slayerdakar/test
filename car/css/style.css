@@ -15,7 +15,6 @@
 
 .car {
   padding: 307px 0 235px 0;
-  position: relative;
   background:
     url("../img/dekor-bg-4.webp") center / 100% 100% no-repeat,
     #1d353b;
@@ -28,19 +27,23 @@
 
 .car-body {
   display: inline-block;
-  width: 1160px;
+  width: 1240px;
   height: 460px;
+  padding: 0 30px 0 50px;
 }
 
-.car-body-top {
+.car-top {
   width: 670px;
   height: 140px;
+  font-size: 0;
+}
+
+.car-top--position {
   position: relative;
-  z-index: 0;
   left: 183px;
 }
 
-.car-body-top__left {
+.car-top__left {
   display: inline-block;
   width: 385px;
   height: 140px;
@@ -50,7 +53,7 @@
   overflow: hidden;
 }
 
-.car-body-top__left::after {
+.car-top__left::after {
   content: "";
   width: 40px;
   height: 40px;
@@ -60,7 +63,7 @@
   background: url("../img/dekor-3.webp") 0 0 / cover no-repeat;
 }
 
-.car-body-top__right {
+.car-top__right {
   display: inline-block;
   width: 285px;
   height: 140px;
@@ -70,8 +73,8 @@
   overflow: hidden;
 }
 
-.car-body-top__left::before,
-.car-body-top__right::before {
+.car-top__left::before,
+.car-top__right::before {
   content: "";
   position: absolute;
   top: 0;
@@ -81,12 +84,9 @@
   background-color: #6b83f1;
 }
 
-.window-driver-inner {
+.driver-window {
   border-radius: 66% 34% 100% 0% / 0% 93% 0% 100%;
   background-color: transparent;
-  position: absolute;
-  bottom: 0;
-  right: 46px;
   border: 6px solid #1b1818;
   border-bottom: none;
   background:
@@ -95,7 +95,13 @@
   cursor: pointer;
 }
 
-.window-driver-inner::before {
+.car-top__window-driver {
+  position: absolute;
+  bottom: 0;
+  right: 46px;
+}
+
+.driver-window::before {
   content: "";
   width: 10px;
   height: 40px;
@@ -108,7 +114,7 @@
   border-radius: 10px 30px 0 0;
 }
 
-.window-driver {
+.driver-window__item {
   width: 184px;
   height: 92px;
   border-radius: 66% 34% 100% 0% / 0% 93% 0% 100%;
@@ -119,13 +125,13 @@
   transform: translate(0, 15px);
 }
 
-.window-driver-inner:hover .window-driver {
+.driver-window:hover .driver-window__item {
   transform: translate(0, 80px);
 }
 
-.window-driver::before,
-.window-passenger::before,
-.window-rear::before {
+.driver-window__item::before,
+.passenger-window__item::before,
+.window-back::before {
   content: "";
   width: 17px;
   height: 115px;
@@ -137,9 +143,9 @@
   transform: skewX(-30deg);
 }
 
-.window-driver::after,
-.window-passenger::after,
-.window-rear::after {
+.driver-window__item::after,
+.passenger-window__item::after,
+.window-back::after {
   content: "";
   width: 50px;
   height: 115px;
@@ -151,13 +157,9 @@
   transform: skewX(-30deg);
 }
 
-.window-passenger-inner {
+.passenger-window {
   background-color: #61c9e6;
   border-radius: 30px 0 0 0;
-
-  position: absolute;
-  bottom: 0;
-  right: 266px;
   border: 6px solid #1b1818;
   background:
     url("../img/img-girl.webp") left bottom / contain no-repeat,
@@ -167,11 +169,17 @@
   cursor: pointer;
 }
 
-.window-passenger-inner:hover .window-passenger {
+.car-top__window-passenger {
+  position: absolute;
+  bottom: 0;
+  right: 266px;
+}
+
+.passenger-window:hover .passenger-window__item {
   transform: translate(0, 80px);
 }
 
-.window-passenger {
+.passenger-window__item {
   width: 187px;
   height: 93px;
   background-color: #61c9e6;
@@ -181,12 +189,15 @@
   transition: all 0.3s;
 }
 
-.window-rear {
+.window-back {
   width: 105px;
   height: 70px;
   border-radius: 100% 0% 57% 43% / 77% 100% 0% 23%;
   background-color: #61c9e6;
   overflow: hidden;
+}
+
+.car-top__window-back {
   position: absolute;
   bottom: 16px;
   left: 76px;
@@ -205,70 +216,7 @@
   margin-right: 3px;
 }
 
-.car-middle__trunk-inner {
-  width: 304px;
-  height: 20px;
-  display: inline-block;
-  cursor: pointer;
-  border-radius: 0 10px 0 0;
-  position: relative;
-}
-
-.car-middle__trunk-inner::before {
-  content: "";
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  top: 0;
-  right: 130px;
-  background: url("../img/motor.webp") center / cover no-repeat;
-}
-
-.car-middle__trunk-inner:hover .trunk {
-  transform: rotate(-30deg);
-}
-
-.trunk {
-  transform-origin: 0 0;
-  width: 100%;
-  height: 100%;
-  background-color: #6b82f2;
-  border-radius: 0 10px 0 0;
-  transition: all 0.3s;
-  position: relative;
-  pointer-events: none;
-}
-
-.trunk::before {
-  content: "";
-  width: 9px;
-  height: 18px;
-  position: absolute;
-  bottom: -18px;
-  right: 14px;
-  background-color: #292a2e;
-  border-radius: 0% 100% 5px 100% / 0% 0% 100% 100%;
-}
-
-.trunk::after {
-  content: "";
-  width: 5px;
-  height: 30px;
-  position: absolute;
-  left: 55px;
-  top: 21px;
-  background-color: #070906;
-  transform: skew(-40deg);
-}
-
-.car-middle__dekor {
-  display: inline-block;
-  width: 670px;
-  height: 100%;
-  background-color: #6b82f2;
-}
-
-.car-middle__hood-inner {
+.hood-car {
   display: inline-block;
   width: 180px;
   height: 20px;
@@ -277,7 +225,7 @@
   position: relative;
 }
 
-.car-middle__hood-inner::before {
+.hood-car::before {
   content: "";
   width: 171px;
   height: 171px;
@@ -288,11 +236,11 @@
   border-radius: 50%;
 }
 
-.car-middle__hood-inner:hover .hood {
+.hood-car:hover .hood-car__item {
   transform: rotate(50deg);
 }
 
-.hood {
+.hood-car__item {
   width: 100%;
   height: 100%;
   background-color: #6b82f2;
@@ -301,6 +249,69 @@
   transform-origin: 100% 0;
   position: relative;
   pointer-events: none;
+}
+
+.car-middle__dekor {
+  display: inline-block;
+  width: 670px;
+  height: 100%;
+  background-color: #6b82f2;
+}
+
+.trunk-car {
+  width: 304px;
+  height: 20px;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 0 10px 0 0;
+  position: relative;
+}
+
+.trunk-car::before {
+  content: "";
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  right: 130px;
+  background: url("../img/motor.webp") center / cover no-repeat;
+}
+
+.trunk-car:hover .trunk-car__item {
+  transform: rotate(-30deg);
+}
+
+.trunk-car__item {
+  transform-origin: 0 0;
+  width: 100%;
+  height: 100%;
+  background-color: #6b82f2;
+  border-radius: 0 10px 0 0;
+  transition: all 0.3s;
+  position: relative;
+  pointer-events: none;
+}
+
+.trunk-car__item::before {
+  content: "";
+  width: 9px;
+  height: 18px;
+  position: absolute;
+  bottom: -18px;
+  right: 14px;
+  background-color: #292a2e;
+  border-radius: 0% 100% 5px 100% / 0% 0% 100% 100%;
+}
+
+.trunk-car__item::after {
+  content: "";
+  width: 5px;
+  height: 30px;
+  position: absolute;
+  left: 55px;
+  top: 21px;
+  background-color: #070906;
+  transform: skew(-40deg);
 }
 
 .car-body-bottom {
@@ -357,29 +368,20 @@
     url("../img/dekor-9.webp") 455px 15px / 40px 20px no-repeat;
 }
 
-.front-fender {
+.front-fender__item {
   width: 293px;
   height: 143px;
   background-color: #6c82ef;
   border-radius: 76% 24% 0% 100% / 100% 55% 45% 0%;
+}
+
+.fender__front {
   position: absolute;
   bottom: 0;
   right: 47px;
-  z-index: 1;
 }
 
-.front-fender-shadow {
-  width: 231px;
-  height: 124px;
-  background-color: #070906;
-  border-radius: 78% 22% 0% 100% / 100% 39% 61% 0%;
-  position: absolute;
-  bottom: 0;
-  right: 77px;
-  z-index: 2;
-}
-
-.back-fender {
+.back-fender__item {
   width: 290px;
   height: 100px;
   background-color: transparent;
@@ -388,58 +390,62 @@
   border-right: 31px solid #6982f6;
   border-left: 28px solid #6982f6;
   border-bottom: transparent;
-  position: absolute;
-  bottom: 0px;
-  left: 150px;
-  z-index: 2;
   transform-origin: 100% 0;
   transform: rotate(4deg);
 }
 
-.back-fender-shadow {
+.fender__back {
+  position: absolute;
+  bottom: 0px;
+  left: 150px;
+  z-index: 2;
+}
+
+.front-shadow-fender__item {
+  width: 231px;
+  height: 124px;
+  background-color: #070906;
+  border-radius: 78% 22% 0% 100% / 100% 39% 61% 0%;
+}
+
+.fender-shadow__front {
+  position: absolute;
+  bottom: 0;
+  right: 77px;
+}
+
+.back-shadow-fender__item {
   width: 248px;
   height: 72px;
   background-color: #070906;
-  position: absolute;
-  left: 163px;
-  bottom: 1px;
   border-radius: 60px 30px 0 0;
   transform-origin: 100% 0;
   transform: rotate(4deg);
 }
 
-.bumper {
+.fender-shadow__back {
+  position: absolute;
+  left: 163px;
+  bottom: 1px;
+}
+
+.front-bumper__item,
+.back-bumper__item {
   width: 79px;
   height: 73px;
   background-color: #e7dddb;
   border-radius: 20px;
   box-shadow: inset 0px -20px 1px -3px #b5b0ac;
+}
+
+.bumper__front {
   position: absolute;
-}
-
-.bumper--back {
-  bottom: 35px;
-  left: -47px;
-}
-
-.bumper--back::before {
-  content: "";
-  width: 55px;
-  height: 55px;
-  position: absolute;
-  bottom: 17px;
-  right: 12px;
-  background: url("../img/dekor-4.webp") 0 0 / cover no-repeat;
-  transform: scale(-1, 1);
-}
-
-.bumper--front {
   bottom: 0;
   right: 0;
   z-index: 2;
 }
 
-.bumper--front::before {
+.front-bumper::before {
   content: "";
   width: 70px;
   height: 70px;
@@ -450,51 +456,76 @@
   transform: scale(-1, 1);
 }
 
-.door-decor {
+.bumper__back {
+  position: absolute;
+  bottom: 35px;
+  left: -47px;
+}
+
+.back-bumper::before {
+  content: "";
+  width: 55px;
+  height: 55px;
+  position: absolute;
+  bottom: 17px;
+  right: 12px;
+  background: url("../img/dekor-4.webp") 0 0 / cover no-repeat;
+  transform: scale(-1, 1);
+}
+
+.front-decor-door__item,
+.back-decor-door__item {
   width: 0;
   height: 88px;
   border-bottom: 50px solid transparent;
   border-left: 195px solid #2836d5;
-  position: absolute;
 }
 
-.door-decor--back {
+.door-decor__front {
+  position: absolute;
   top: 0;
   left: 390px;
 }
 
-.door-decor--front {
+.door-decor__back {
+  position: absolute;
   top: 0;
   right: 355px;
 }
 
-.handle {
+.front-handle,
+.back-handle {
+  cursor: pointer;
+}
+
+.front-handle__item,
+.back-handle__item {
   width: 58px;
   height: 18px;
   background-color: #f0c2c2;
   border-radius: 5px;
   box-shadow: inset 0px -10px 0px -3px #3e27b6;
-  position: absolute;
   transition: all 0.3s;
-  cursor: pointer;
   transform-origin: 0 0;
 }
 
-.handle--back {
-  top: 14px;
-  left: 397px;
-}
-
-.handle--back:hover {
-  transform: rotateX(60deg);
-}
-
-.handle--front {
+.handle__front {
+  position: absolute;
   top: 14px;
   right: 485px;
 }
 
-.handle--front:hover {
+.front-handle:hover .front-handle__item {
+  transform: rotateX(60deg);
+}
+
+.handle__back {
+  position: absolute;
+  top: 14px;
+  left: 397px;
+}
+
+.back-handle:hover .back-handle__item {
   transform: rotateX(60deg);
 }
 
@@ -503,12 +534,15 @@
   height: 76px;
   background-color: #1a43d1;
   border-radius: 15px 0 0px 0px;
+}
+
+.back-decor--position {
   position: absolute;
   left: -24px;
   top: 16px;
 }
 
-.front-light {
+.front-light--position {
   position: absolute;
   top: 0;
   right: -27px;
@@ -540,24 +574,31 @@
   height: 34px;
   border-radius: 9px 7px 7px 9px;
   background-color: #a50811;
+  transition: all 0.3s;
+}
+
+.back-light--position {
   position: absolute;
   top: 58px;
   left: -36px;
-  transition: all 0.3s;
 }
 
 .back-light:hover {
   box-shadow: -28px 0px 67px 35px #a50811;
 }
+
 .fuel-cap {
   width: 44px;
   height: 38px;
   display: inline-block;
+  cursor: pointer;
+}
+
+.fuel-cap--position {
   position: absolute;
   top: 30px;
   left: 135px;
   z-index: 1;
-  cursor: pointer;
 }
 
 .fuel-cap__body {
@@ -569,14 +610,13 @@
 
 .fuel-cap__front,
 .fuel-cap__back {
-  position: absolute;
   width: 100%;
   height: 100%;
+  position: absolute;
   top: 0;
   left: 0;
   transition: all 0.9s;
   border-radius: 10px;
-  box-shadow: inset 0px 0px 0px 2px #0e333d;
 }
 
 .fuel-cap__front {
@@ -584,7 +624,7 @@
   backface-visibility: hidden;
   background-color: #1d34b8;
   background:
-    url("../img/dekor-12.webp") center / cover no-repeat,
+    url("../img/dekor-12.webp") 5px 2px / 35px 31px no-repeat,
     #1d34b8;
 }
 
@@ -606,13 +646,15 @@
   width: 44px;
   height: 38px;
   background-color: #1d34b8;
-  border-radius: 5px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.fuel-cork--position {
   position: absolute;
   top: 30px;
   left: 135px;
-  text-align: center;
-  z-index: 0;
-  cursor: pointer;
 }
 
 .fuel-cork::before {
@@ -631,17 +673,17 @@
   height: 171px;
   border-radius: 50%;
   background-color: #282530;
-  position: absolute;
   cursor: pointer;
 }
 
 .wheel--front {
+  position: absolute;
   bottom: -83px;
   right: 93px;
-  z-index: 2;
 }
 
 .wheel--back {
+  position: absolute;
   bottom: -83px;
   left: 200px;
 }
@@ -711,7 +753,10 @@
   font-family: "DM Serif Text", serif;
   font-size: 70px;
   letter-spacing: 2px;
+  color: #b2b5db;
+}
+
+.hover-car--position {
   position: relative;
   top: 200px;
-  color: #b2b5db;
 }
