@@ -1,0 +1,465 @@
+@use "sass:math";
+
+@import "_fonts.scss";
+@import "_reset.scss";
+@import "_functions.scss";
+
+// Мінімальна ширина сторінки
+$minWidth: 320;
+// Ширина полотна (макету)
+$maxWidth: 1920;
+// Ширина обмежуючого контейнера (0 = немає обмеження)
+$maxWidthContainer: 1220;
+// Загальний відступ у контейнера
+// (30 = по 15px ліворуч і праворуч, 0 = немає відступу)
+$containerPadding: 15;
+// Ширина спрацьовування першого брейкпоінту
+$containerWidth: $maxWidthContainer + $containerPadding;
+
+[class*="__container"] {
+  max-width: 1250px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+$bodyColor: #7d7d7d;
+
+body {
+  font-family: "Inter", sans-serif;
+  font-size: toRem(18);
+  color: $bodyColor;
+  // .menu-open & {
+  //   overflow: hidden;
+  // }
+}
+
+.wrapper {
+  overflow: clip;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  > main {
+    flex-grow: 1;
+  }
+}
+
+@mixin margBottNotLast($marginBottom) {
+  &:not(:last-child) {
+    margin-bottom: $marginBottom;
+  }
+}
+
+.sub-title {
+  color: #fff;
+  font-weight: 600;
+  line-height: 1.46;
+  padding-left: toEm(18, 18);
+  position: relative;
+  @include margBottNotLast(toEm(10, 18));
+  &::before {
+    content: "";
+    position: absolute;
+    top: toEm(7, 18);
+    left: 0;
+    width: toEm(11, 18);
+    height: toEm(11, 18);
+    background-color: #40ddb6;
+  }
+}
+
+.title {
+  font-size: toRem(40);
+  color: #37393f;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.21;
+}
+
+// ________________________________hero_______________________________
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  position: relative;
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 70% top;
+  }
+
+  &__left {
+    display: flex;
+    flex-basis: calc(toRem(595) + (percent(116, 1920) * 2));
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: percent(116, 1920);
+    padding-left: percent(116, 1920);
+    position: relative;
+    @media (max-width: toEm(1920.98)) {
+    }
+    @media (min-width: toEm(1921)) {
+      flex-basis: percent(828, 1920);
+      padding-left: 0;
+      padding-right: toRem(116);
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: url("/img/hero/hero-left-bg.svg") 0 0 / cover no-repeat;
+      backdrop-filter: blur(9.5px);
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-top: toRem(40);
+    padding-bottom: toRem(40);
+    max-width: toEm(595, 18);
+    width: 100%;
+  }
+
+  &__sub-title {
+    @include adaptiveValue("font-size", 18, 16, 0, 1300, 320);
+  }
+
+  &__title {
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    font-size: toRem(60);
+    @include adaptiveValue("font-size", 60, 36, 0, 1300, 320);
+    font-weight: 700;
+    line-height: 1.1;
+    @include margBottNotLast(toEm(20, 60));
+    span {
+      color: #40ddb6;
+    }
+  }
+
+  &__text {
+    max-width: toEm(482);
+    @include margBottNotLast(toEm(35));
+    > *:not(:last-child) {
+      margin-bottom: toEm(5);
+    }
+    p {
+      @include adaptiveValue("font-size", 18, 16, 0, 1300, 320);
+      color: #b9b9b9;
+      font-weight: 500;
+      line-height: 1.46;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: toRem(595, 18);
+    gap: toEm(30, 18);
+    @media (max-width: toEm(500)) {
+      justify-content: center;
+    }
+  }
+
+  &__btn {
+    padding: toEm(21, 18) toEm(27, 18);
+    background-color: #40ddb6;
+    color: #37393f;
+    text-align: center;
+    font-weight: 600;
+    line-height: 1.27;
+    text-transform: capitalize;
+    transition: all 0.3s;
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: #1fa785;
+        color: #434fc0;
+      }
+    }
+    @media (max-width: toEm(500)) {
+      flex-basis: 100%;
+    }
+  }
+
+  &__box-video {
+    flex: 0 0 toEm(200);
+    display: flex;
+    align-items: center;
+    gap: toEm(10, 18);
+  }
+
+  &__icon-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 toEm(60, 18);
+    height: toEm(60, 18);
+    background-color: #6b77e5;
+    border-radius: 50%;
+    transition: all 0.3s;
+    img {
+      width: toEm(13, 18);
+      height: toEm(20, 18);
+      object-fit: contain;
+    }
+  }
+
+  &__link {
+    color: #fff;
+    font-weight: 600;
+    line-height: 1.2;
+    text-transform: capitalize;
+    text-decoration: underline;
+  }
+}
+
+// ______________________________business-plan______________________________
+
+.business-plan {
+  display: flex;
+
+  &__box-left {
+  }
+
+  &__left {
+  }
+
+  &__right {
+  }
+}
+.plan-left {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-basis: percent(828, 1920);
+  padding: toRem(145, 18) 0;
+  padding-left: 15px;
+  @include adaptiveValue("padding-top", 145, 40, 0, 1250, 320);
+  @include adaptiveValue("padding-bottom", 145, 40, 0, 1250, 320);
+  background-color: #f4f4f4;
+  padding-right: percent(68, 1920);
+  @media (min-width: toEm(1921)) {
+    // flex-basis: percent(828, 1920);
+    padding-right: toRem(68);
+  }
+  @media (max-width: toEm(1650)) {
+  }
+  &__img {
+    aspect-ratio: 408/446;
+    @include margBottNotLast(toEm(20, 18));
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+  }
+
+  &__content {
+    flex-basis: toRem(408);
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    color: #37393f;
+    font-family: "Poppins", sans-serif;
+    font-size: toRem(30);
+    font-weight: 600;
+    line-height: 1.21;
+    text-transform: capitalize;
+    @include margBottNotLast(toEm(13, 30));
+  }
+
+  &__text {
+    @include margBottNotLast(toEm(15, 18));
+    > *:not(:last-child) {
+      margin-bottom: toEm(10, 18);
+    }
+    p {
+      line-height: 1.46;
+    }
+  }
+
+  &__link {
+    align-self: flex-start;
+    color: #37393f;
+    font-weight: 600;
+    line-height: 1.2;
+    text-transform: capitalize;
+    text-decoration: underline;
+    @media (any-hover: hover) {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+.plan-right {
+  display: flex;
+  flex-basis: percent(1091, 1920);
+  padding: toRem(145, 18) 0;
+  padding-left: percent(68, 1920);
+  padding-right: 15px;
+  @include adaptiveValue("padding-top", 145, 40, 0, 1250, 320);
+  @include adaptiveValue("padding-bottom", 145, 40, 0, 1250, 320);
+  @media (min-width: toEm(1921)) {
+    padding-left: 68px;
+  }
+
+  &__content {
+    flex-basis: toRem(673);
+  }
+
+  &__sub-title {
+    &::before {
+      content: "";
+      top: toEm(5, 18);
+      width: toEm(12, 18);
+      height: toEm(12, 18);
+      background-color: #40ddb6;
+    }
+    color: #37393f;
+    font-weight: 500;
+    line-height: 1.2;
+    @include margBottNotLast(toEm(16, 18));
+  }
+
+  &__title {
+    max-width: toEm(430, 40);
+    @include margBottNotLast(toEm(20, 40));
+  }
+
+  &__text {
+    > *:not(:last-child) {
+      margin-bottom: toEm(15, 18);
+    }
+    @include margBottNotLast(toEm(20, 18));
+    p {
+      line-height: 1.46;
+    }
+  }
+
+  &__strategy {
+    @include margBottNotLast(toEm(43, 18));
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    &::before {
+      content: "";
+      width: toEm(27, 20);
+      height: toEm(27, 20);
+      position: absolute;
+      left: 0;
+      top: toEm(3, 20);
+      background: url("../img/business-plan/strategy-icon.svg") center / cover no-repeat;
+    }
+    color: #37393f;
+    font-family: "Poppins", sans-serif;
+    font-size: toRem(20);
+    padding-left: toEm(35, 20);
+    min-height: toEm(33, 20);
+    line-height: 1.2;
+    @include margBottNotLast(toEm(25, 20));
+  }
+
+  &__awards {
+    display: flex;
+    gap: toRem(21);
+    flex-wrap: wrap;
+    @include margBottNotLast(toEm(37, 18));
+    @media (max-width: toEm(1200)) {
+      flex-direction: column;
+    }
+  }
+
+  &__item-awards {
+  }
+
+  &__btn {
+    padding: toEm(21, 18) toEm(27, 18) toEm(22, 18) toEm(27, 18);
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+    line-height: 1.2;
+    text-transform: capitalize;
+    background-color: #6b77e5;
+    transition: all 0.3s;
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: #434fc0;
+        color: #40ddb6;
+      }
+    }
+  }
+}
+
+.awards-item {
+  display: flex;
+  padding: toRem(32);
+  max-width: toRem(295);
+  border: 1px solid #e3e3e3;
+  @media (max-width: toEm(1200)) {
+    &.plan-right__item-awards {
+      max-width: 100%;
+      justify-content: center;
+    }
+  }
+  img {
+    width: toRem(42);
+    height: toRem(42);
+    object-fit: contain;
+  }
+
+  &__box {
+    display: flex;
+    align-items: flex-start;
+    column-gap: toRem(19);
+    flex-basis: toRem(231);
+  }
+
+  &__content {
+  }
+
+  &__title {
+    color: #37393f;
+    font-family: "Poppins", sans-serif;
+    font-size: toRem(20);
+    font-weight: 600;
+    line-height: 1.2;
+    @include margBottNotLast(toEm(7, 20));
+  }
+
+  &__text {
+    > *:not(:last-child) {
+      margin-bottom: toEm(5, 18);
+    }
+    p {
+      font-size: toRem(16);
+      line-height: 1.35;
+    }
+  }
+}
+
+.footer {
+  p {
+    font-size: 30px;
+    text-align: center;
+    padding: 50px 0;
+    line-height: 1.2;
+    box-shadow: inset 0px 0px 40px 40px rgba(150, 146, 146, 0.1);
+  }
+}
