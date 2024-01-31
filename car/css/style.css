@@ -46,17 +46,9 @@ body {
   color: #000;
   transition: all 0.3s;
   font-weight: 800;
+  text-align: center;
 }
 
-@media (max-width: 991.98px) {
-  .video-link {
-    top: auto;
-    bottom: 80px;
-    right: auto;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
 .video-link:hover {
   background-color: #03a9f4;
 }
@@ -73,6 +65,21 @@ body {
   row-gap: 20px;
   border: 2px solid #fff;
 }
+
+@media (max-width: 991.98px) {
+  .video-link {
+    top: auto;
+    bottom: 40px;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 290px;
+  }
+  .interactive {
+    padding: 10px;
+  }
+}
+
 @media (max-width: 550px) {
   .interactive {
     border-radius: 0px;
