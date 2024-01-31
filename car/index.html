@@ -5,15 +5,78 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
-  <title>car</title>
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <title>Домашка №13</title>
 </head>
 
 <body>
   <div class="wrapper">
     <header class="header">
     </header>
-
     <main class="main">
+      <a class="video-link" target="_blank" href="https://slayerdakar.github.io/test/car-scene/">Car video scene</a>
+      <div class="interactive">
+        <div class="interactive-title">Interactive block</div>
+        <div class="interactive-panel">
+          <ul class="interactive-switches">
+            <li class="interactive-switches-item">
+              <div class="switch-item">
+                <div class="switch-name">window driver</div>
+                <label class="switch ">
+                  <input class="switch-input" data-switch='1' type="checkbox">
+                  <span class="slider round"></span>
+                </label>
+              </div>
+            </li>
+            <li class="interactive-switches-item">
+              <div class="switch-item">
+                <div class="switch-name">window pass</div>
+                <label class="switch ">
+                  <input class="switch-input" data-switch='2' type="checkbox">
+                  <span class="slider round"></span>
+                </label>
+              </div>
+            </li>
+            <li class="interactive-switches-item">
+              <div class="switch-item">
+                <div class="switch-name">car bonnet</div>
+                <label class="switch ">
+                  <input class="switch-input" data-switch='3' type="checkbox">
+                  <span class="slider round"></span>
+                </label>
+              </div>
+            </li>
+            <li class="interactive-switches-item">
+              <div class="switch-item">
+                <div class="switch-name">car trunk</div>
+                <label class="switch ">
+                  <input class="switch-input" data-switch='4' type="checkbox">
+                  <span class="slider round"></span>
+                </label>
+              </div>
+            </li>
+            <li class="interactive-switches-item">
+              <div class="switch-item">
+                <div class="switch-name">light</div>
+                <label class="switch ">
+                  <input class="switch-input" data-switch='5' type="checkbox">
+                  <span class="slider round"></span>
+                </label>
+              </div>
+            </li>
+            <li class="interactive-switches-item">
+              <div class="switch-item">
+                <div class="switch-name">fuel</div>
+                <label class="switch ">
+                  <input class="switch-input" data-switch='6' type="checkbox">
+                  <span class="slider round"></span>
+                </label>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <div class="car">
         <div class="car__container">
           <div class="car-body">
@@ -21,24 +84,26 @@
               <div class="car-top__body">
                 <div class="car-top__left"></div>
                 <div class="car-top__right"></div>
-                <div class="car-top__window-driver driver-window">
+                <div id="1" data-elem='1' class="car-top__window-driver driver-window">
                   <div class="driver-window__item"></div>
                 </div>
-                <div class="car-top__window-passenger passenger-window">
+                <div id="2" data-elem='2' class="car-top__window-passenger passenger-window">
                   <div class="passenger-window__item"></div>
                 </div>
-                <div class="car-top__window-back window-back"></div>
+                <div class="car-top__window-back back-window">
+                </div>
               </div>
             </div>
             <div class="car-middle">
-              <div class="car-middle__hood hood-car">
-                <div class="hood-car__item"></div>
-              </div>
-              <div class="car-middle__dekor"></div>
-              <div class="car-middle__trunk trunk-car">
+              <div id="4" data-elem='4' class="car-middle__trunk trunk-car">
                 <div class="trunk-car__item"></div>
               </div>
+              <div class="car-middle__dekor dekor-middle-car"></div>
+              <div id="3" data-elem='3' class="car-middle__bonnet car-bonnet">
+                <div class="car-bonnet__item"></div>
+              </div>
             </div>
+
             <div class="car-body-bottom">
               <div class="car-body-bottom__left"></div>
               <div class="car-body-bottom__right"></div>
@@ -85,13 +150,13 @@
               <div class="back-decor back-decor--position">
                 <div class="back-decor__item"></div>
               </div>
-              <div class="front-light front-light--position">
+              <div data-elem='5' class="front-light front-light--position">
                 <div class="front-light__base"></div>
                 <div class="front-light__glass"></div>
               </div>
-              <div class="back-light back-light--position"></div>
+              <div data-elem='5' class="back-light back-light--position"></div>
               <div class="fuel-cap fuel-cap--position">
-                <div class="fuel-cap__body">
+                <div data-elem='6' class="fuel-cap__body">
                   <div class="fuel-cap__back"></div>
                   <div class="fuel-cap__front"></div>
                 </div>
@@ -122,18 +187,20 @@
                 </div>
               </div>
             </div>
-            <div class="hover-car hover-car--position">
-              <p>:HOVER</p>
-            </div>
+          </div>
+          <div class="hover-car">
+            <p>:HOVER</p>
           </div>
         </div>
       </div>
-
     </main>
     <footer class="footer">
-
+      <!-- <p>
+        Домашка №13 - 2023
+      </p> -->
     </footer>
   </div>
+  <script src="js/script.js"></script>
 </body>
 
 </html>
