@@ -37,7 +37,7 @@ body {
 .video-link {
   position: absolute;
   top: 110px;
-  right: 9%;
+  right: 5%;
   padding: 20px;
   font-size: 30px;
   background-color: #1a43d1;
@@ -101,15 +101,19 @@ body {
   flex-wrap: wrap;
   row-gap: 10px;
 }
-.interactive-switches-item {
+
+.switch-item {
+  /* text-align: center; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 5px;
+  padding: 0 2px;
   flex: 0 1 50%;
 }
-.switch-item {
-  text-align: center;
-  padding: 0 2px;
-}
 .switch-name {
-  margin-bottom: 5px;
+  text-align: center;
+  flex-grow: 1;
   color: #03a9f4;
 }
 
