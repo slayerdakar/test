@@ -12,8 +12,11 @@
 
 //Кнопки
 .button {
-  padding: toRem(20) toRem(42);
-  font-size: toRem(26);
+  @include adaptiveValue("padding-top", 20, 10);
+  @include adaptiveValue("padding-bottom", 20, 10);
+  @include adaptiveValue("padding-left", 42, 16);
+  @include adaptiveValue("padding-right", 42, 16);
+  @include adaptiveValue("font-size", 26, 14);
   background-color: #fcfcfc;
   border-radius: toRem(10);
   text-align: center;

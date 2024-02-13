@@ -1,0 +1,49 @@
+.hero {
+  background-color: $bgColorSectionOne;
+  @include adaptiveValue("padding-top", 116, 72);
+  &__container {
+    min-height: calc(100vh - 116px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__content {
+    flex-basis: toRem(875);
+    & > *:not(:last-child) {
+      margin-bottom: toRem(24);
+      @include adaptiveValue("margin-bottom", 24, 8);
+    }
+  }
+
+  &__title {
+    @include adaptiveValue("font-size", 90, 52);
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  &__text {
+    & > *:not(:last-child) {
+      margin-bottom: toRem(15);
+    }
+    @include adaptiveValue("font-size", 50, 30);
+    @include adaptiveValue("line-height", 65, 33);
+    &:not(:last-child) {
+      // margin-bottom: toRem(91);
+      @include adaptiveValue("margin-bottom", 91, 16);
+    }
+  }
+
+  &__img {
+    aspect-ratio: 539/761;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__button {
+  }
+}
+.button {
+}
